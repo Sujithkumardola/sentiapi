@@ -9,7 +9,7 @@ def fetch():
   resp=resp.json()
   result=""
   for i in resp:
-    result=result+str(i["ticker"])+": "+str(i["sentiment"])+"\n"
+    result=result+str(i["ticker"])+": "+str(i["sentiment"])
   return repr(result)
 if __name__=="__main__":
   app.run()
