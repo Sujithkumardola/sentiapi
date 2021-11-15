@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask,render_template
 app=Flask(__name__)
 @app.route('/fetch')
 def fetch():
@@ -9,7 +9,8 @@ def fetch():
   resp=resp.json()
   result=""
   for i in resp:
-    result=result+str(i["ticker"])+": "+str(i["sentiment"])
-  return repr(result)
+    result=result+str(i["ticker"])+": "+str(i["sentiment"])+"\n"
+    text=result.split('\n')
+  return render_template("index.html",text=text)
 if __name__=="__main__":
   app.run()
