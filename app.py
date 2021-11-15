@@ -4,12 +4,12 @@ app=Flask(__name__)
 def fetch():
   import requests
   import json
-  url="https://dashboard.nbshare.io/api/v1/apps/redd>
+  url="https://dashboard.nbshare.io/api/v1/apps/reddit"
   resp=requests.get(url)
   resp=resp.json()
   result=""
   for i in resp:
-    result=result+str(i["ticker"])+": "+str(i["senti>
+    result=result+str(i["ticker"])+": "+str(i["sentiment"])+"\n"
   return repr(result)
 if __name__=="__main__":
   app.run()
